@@ -358,6 +358,8 @@ abstract class AbstractLeaveAllocationService extends BaseService {
 //        $leaveRequest->setLeavePeriodId($leavePeriodId);
         $leaveRequest->setEmpNumber($leaveAssignmentData->getEmployeeNumber());
         $leaveRequest->setComments($leaveAssignmentData->getComment());
+		$leaveRequest->setLeaveStateFrom($leaveAssignmentData->getLeaveStateFrom());
+		$leaveRequest->setLeaveStateTo($leaveAssignmentData->getLeaveStateTo());
         return $leaveRequest;
     }
 
@@ -401,8 +403,6 @@ abstract class AbstractLeaveAllocationService extends BaseService {
             $leave->setEndTime(($leaveAssignmentData->getToTime() != '') ? $leaveAssignmentData->getToTime() : '00:00');
             $leave->setLengthHours($this->calculateTimeDeference($leaveAssignmentData, $isWeekend, $isHoliday, $isHalfday, $isHalfDayHoliday));
             $leave->setStatus($this->getLeaveRequestStatus($isWeekend, $isHoliday, $leaveDate, $leaveAssignmentData));
-			$leave->setLeaveStateFrom($leaveAssignmentData->getLeaveStateFrom());
-			$leave->setLeaveStateTo($leaveAssignmentData->getLeaveStateTo());
             array_push($leaveList, $leave);
         }
         return $leaveList;
