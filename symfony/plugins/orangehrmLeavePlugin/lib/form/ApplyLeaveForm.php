@@ -68,7 +68,7 @@ class ApplyLeaveForm extends sfForm {
         $this->setDefault('txtEmpID', $this->getEmployeeNumber());
         $this->setDefault('txtEmpWorkShift', $this->getWorkShiftLength());
         $this->setDefault('leaveBalance', '--');
-
+	
         $this->getValidatorSchema()->setPostValidator(new sfValidatorCallback(array('callback' => array($this, 'postValidation'))));
 
         $this->getWidgetSchema()->setNameFormat('applyleave[%s]');
@@ -488,7 +488,9 @@ class ApplyLeaveForm extends sfForm {
             'txtLeaveType' => new sfWidgetFormChoice(array('choices' => $this->getLeaveTypeList())),
             'leaveBalance' => new ohrmWidgetDiv(),            
             'txtFromDate' => new ohrmWidgetDatePicker(array(), array('id' => 'applyleave_txtFromDate')),
+			'txtLeaveStateFrom' => new sfWidgetFormChoice(array('choices' => array('am' => 'am', 'pm' => 'pm'))),
             'txtToDate' => new ohrmWidgetDatePicker(array(), array('id' => 'applyleave_txtToDate')),
+			'txtLeaveStateTo' => new sfWidgetFormChoice(array('choices' => array('am' => 'am', 'pm' => 'pm'))),
             'time' => new ohrmWidgetFormTimeRange(array(
                     'from_time' => new ohrmWidgetTimeDropDown(),
                     'to_time' => new ohrmWidgetTimeDropDown())),
@@ -514,8 +516,10 @@ class ApplyLeaveForm extends sfForm {
             'txtLeaveType' => new sfValidatorChoice(array('choices' => array_keys($this->getLeaveTypeList()))),
             'txtFromDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => true),
                     array('invalid' => 'Date format should be ' . $inputDatePattern)),
+			'txtLeaveStateFrom' => new sfValidatorChoice(array('choices' => array('am','pm'))),		
             'txtToDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => true),
                     array('invalid' => 'Date format should be ' . $inputDatePattern)),
+			'txtLeaveStateTo' => new sfValidatorChoice(array('choices' => array('am','pm'))),		
             'txtComment' => new sfValidatorString(array('required' => false, 'trim' => true, 'max_length' => 1000)),
             'time' => new sfValidatorPass()
         );
@@ -536,10 +540,11 @@ class ApplyLeaveForm extends sfForm {
             'txtFromDate' => __('From Date') . $requiredMarker,
             'txtToDate' => __('To Date') . $requiredMarker,
             'txtComment' => __('Comment'),
+			'txtLeaveStateFrom' => '&rarr;',
+			'txtLeaveStateTo' => '&rarr;'
         );
         
         return $labels;
     }
 
 }
-
