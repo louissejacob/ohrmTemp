@@ -11,7 +11,9 @@ class LeaveParameterObject {
     protected $leaveTotalTime;
     protected $comment;
     protected $workShiftLength;
-
+	protected $leaveStateFrom= 'am';
+	protected $leaveStateTo= 'pm';
+	
     public function __construct(array $formParameters) {
         $this->employeeNumber = $formParameters['txtEmpID']; // TODO: Make this employee number
         $this->fromDate = $formParameters['txtFromDate'];
@@ -22,8 +24,24 @@ class LeaveParameterObject {
         $this->leaveTotalTime = $formParameters['txtLeaveTotalTime'];
         $this->comment = $formParameters['txtComment'];
         $this->workShiftLength = $formParameters['txtEmpWorkShift'];
+		$this->leaveStateFrom = $formParameters['txtLeaveStateFrom'];
+		$this->leaveStateTo = $formParameters['txtLeaveStateTo'];
     }
 
+	public function getLeaveStateFrom(){
+		return $this->leaveStateFrom;
+	}
+	
+	public function getLeaveStateTo(){
+		return $this->leaveStateTo;
+	}
+	
+	public function setLeaveStateFrom($state){
+		$this->leaveStateFrom=$state;
+	}
+	public function setLeaveStateTo($state){
+		$this->leaveStateTo=$state;
+	}
     public function getEmployeeNumber() {
         return $this->employeeNumber;
     }
