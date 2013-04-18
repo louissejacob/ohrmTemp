@@ -358,7 +358,8 @@ abstract class AbstractLeaveAllocationService extends BaseService {
 //        $leaveRequest->setLeavePeriodId($leavePeriodId);
         $leaveRequest->setEmpNumber($leaveAssignmentData->getEmployeeNumber());
         $leaveRequest->setComments($leaveAssignmentData->getComment());
-
+		$leaveRequest->setLeaveStateFrom($leaveAssignmentData->getLeaveStateFrom());
+		$leaveRequest->setLeaveStateTo($leaveAssignmentData->getLeaveStateTo());
         return $leaveRequest;
     }
 

@@ -88,6 +88,24 @@ abstract class BaseLeaveRequest extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 256,
              ));
+		$this->hasColumn('leave_state_from', 'string', 8, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 8,
+             ));
+		$this->hasColumn('leave_state_to', 'string', 8, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 8,
+             ));
     }
 
     public function setUp()
