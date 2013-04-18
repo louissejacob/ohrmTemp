@@ -1,0 +1,10 @@
+--- symfony/plugins/orangehrmTimePlugin/web/js/editTimesheetPartial.js	(revision 11575)
++++ symfony/plugins/orangehrmTimePlugin/web/js/editTimesheetPartial.js	(working copy)
+@@ -83,6 +84,7 @@
+                             success: function(state){
+                             }
+                         });
++                        _showMessage('success', lang_removeSuccess);
+                         $('form#timesheetForm').submit();
+                     }
+                 }

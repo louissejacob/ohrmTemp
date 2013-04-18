@@ -1,0 +1,11 @@
+--- apps/orangehrm/modules/performance/templates/viewReviewSuccess.php	(revision 11575)
++++ apps/orangehrm/modules/performance/templates/viewReviewSuccess.php	(working copy)
+@@ -46,7 +46,7 @@
+                                     if ($job->getIsDeleted() == JobTitle::DELETED) {
+                                         $jobName = $jobName . ' (' . __('Deleted') . ')';
+                                     }
+-                                    echo "<option value=\"" . $job->getId() . "\"" . $selected . ">" . htmlspecialchars_decode($jobName) . "</option>\n";
++                                    echo "<option value=\"" . $job->getId() . "\"" . $selected . ">" . $jobName . "</option>\n";
+                                 }
+                                 ?>
+                             </select>

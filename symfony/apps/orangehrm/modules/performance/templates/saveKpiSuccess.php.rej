@@ -1,0 +1,11 @@
+--- apps/orangehrm/modules/performance/templates/saveKpiSuccess.php	(revision 11575)
++++ apps/orangehrm/modules/performance/templates/saveKpiSuccess.php	(working copy)
+@@ -27,7 +27,7 @@
+                              <select name="txtJobTitle" id="txtJobTitle" tabindex="1" >
+                      	       <option value=""><?php echo '--'.__('Select').'--'?></option>
+ 	                           <?php foreach($listJobTitle as $jobTitle){?>
+-	                     	   <option value="<?php echo $jobTitle->getId()?>"><?php echo htmlspecialchars_decode($jobTitle->getJobTitleName())?></option>
++	                     	   <option value="<?php echo $jobTitle->getId()?>"><?php echo $jobTitle->getJobTitleName()?></option>
+ 	                           <?php }?>
+                              </select>
+                         </li>

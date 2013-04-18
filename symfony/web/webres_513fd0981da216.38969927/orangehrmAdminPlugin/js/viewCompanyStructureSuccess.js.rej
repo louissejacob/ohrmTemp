@@ -1,0 +1,39 @@
+--- symfony/plugins/orangehrmAdminPlugin/web/js/viewCompanyStructureSuccess.js	(revision 11575)
++++ symfony/plugins/orangehrmAdminPlugin/web/js/viewCompanyStructureSuccess.js	(working copy)
+@@ -26,6 +26,7 @@
+             success: function(obj) {
+                 _showMessage(obj.messageType, obj.message);
+                 clearForm();
++                _clearMessageBaloon();
+                 reloadTree();
+                 $('#dltConfirmationMsg').text("")
+                 $("#dltDialog").modal('hide');
+@@ -165,6 +166,7 @@
+                 loadNode(obj.affectedId);
+             }
+             _showMessage(obj.messageType, obj.message);
++            _clearMessageBaloon();
+             closeDialog()
+         }
+     });
+@@ -195,7 +197,7 @@
+     });
+ }
+ 
+-function _showMessage(messageType, message) {
++function _showMessage(messageType, message) {   
+     _clearMessage();
+     $('#messageDiv').append('<div class="message ' + messageType + '" id="divMessageBar" generated="true">'+ message + 
+         "<a class='messageCloseButton' href='#'>"+closeText+"</a>" +  '</div>');
+@@ -203,4 +205,11 @@
+ 
+ function _clearMessage() {
+     $('#messageDiv div[generated="true"]').remove();
++}
++
++function _clearMessageBaloon (){
++    $('#divMessageBar').delay(2000)
++        .fadeOut("slow", function () {
++            $('#divMessageBar').remove();
++        }); 
+ }

@@ -1,0 +1,11 @@
+--- symfony/web/themes/default/css/jquery/jquery-treeview/jquery.treeview.css	(revision 11575)
++++ symfony/web/themes/default/css/jquery/jquery-treeview/jquery.treeview.css	(working copy)
+@@ -68,7 +68,7 @@
+ 
+ .addButton {
+     color: #33AC3F;
+-    font-size: 18px;
++    font-size: 16px;
+     font-weight: bold;
+ }
+ 

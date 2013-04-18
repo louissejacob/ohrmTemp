@@ -1,0 +1,18 @@
+--- symfony/plugins/orangehrmCorePlugin/lib/dao/ReportableDao.php	(revision 11575)
++++ symfony/plugins/orangehrmCorePlugin/lib/dao/ReportableDao.php	(working copy)
+@@ -422,12 +422,12 @@
+ 
+             $results = $query->execute()->getData();
+ 
+-            if ($results[0]->getReportId() == null) {
++            /**if ($results[0]->getReportId() == null) {
+                 return null;
+-            } else {
++            } else {*/
+ 
+                 return $results;
+-            }
++            //}
+         } catch (Exception $ex) {
+             throw new DaoException($ex->getMessage());
+         }
